@@ -10,6 +10,7 @@ inputs:
 outputs:
   greeting:
     description: 'The greeting message'
+    value: ${{ steps.greeting_step.outputs.greeting }}
 
 runs:
   using: 'composite'
@@ -17,6 +18,5 @@ runs:
     - id: greeting_step
       run: |
         echo "greeting=Hello, ${{ inputs.username }}!" >> $GITHUB_OUTPUT
-        echo "::Debug::$GITHUB_OUTPUT"
       shell: bash
 
