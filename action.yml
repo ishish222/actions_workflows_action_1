@@ -1,0 +1,21 @@
+name: 'own-action-001'
+description: 'For testing purposes'
+
+inputs:
+  username:
+    description: 'Name of the user'
+    required: true
+    default: 'Anon'
+  
+outputs:
+  greeting:
+    description: 'The greeting message'
+
+runs:
+  using: 'composite'
+  steps:
+    - id: greeting_step
+      run: |
+        echo "greeting=Hello, ${{ inputs.username }}!" >> $GITHUB_OUTPUT
+      shell: bash
+
