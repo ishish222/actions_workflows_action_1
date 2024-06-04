@@ -17,5 +17,6 @@ runs:
     - id: greeting_step
       run: |
         echo "greeting=Hello, ${{ inputs.username }}!" >> $GITHUB_OUTPUT
+        echo "::Debug::$GITHUB_OUTPUT"
       shell: bash
 
